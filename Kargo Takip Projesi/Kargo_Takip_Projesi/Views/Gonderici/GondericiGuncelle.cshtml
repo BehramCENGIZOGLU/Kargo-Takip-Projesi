@@ -1,0 +1,33 @@
+﻿@model Kargo_Takip_Projesi.Models.Veri_Tabani.Gönderici_Bilgileri
+@{
+    ViewBag.Title = "GondericiGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle","Gonderici",FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gonderici_Id)
+        @Html.TextBoxFor(m => m.Gonderici_Id, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Gonderici_Ad)
+        @Html.TextBoxFor(m => m.Gonderici_Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Gonderici_Soyad)
+        @Html.TextBoxFor(m => m.Gonderici_Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Gonderici_Adres)
+        @Html.TextBoxFor(m => m.Gonderici_Adres, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Gonderici_Ilce)
+        @Html.TextBoxFor(m => m.Gonderici_Ilce, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Gonderici_Il)
+        @Html.TextBoxFor(m => m.Gonderici_Il, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+    
+}
+

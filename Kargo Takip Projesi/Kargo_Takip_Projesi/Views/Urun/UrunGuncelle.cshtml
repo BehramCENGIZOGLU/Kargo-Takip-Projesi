@@ -1,0 +1,25 @@
+﻿@model Kargo_Takip_Projesi.Models.Veri_Tabani.Urun_Bilgileri
+@{
+    ViewBag.Title = "UrunGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Urun_Barkod_Numarasi)
+        @Html.TextBoxFor(m => m.Urun_Barkod_Numarasi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Urun_Adi)
+        @Html.TextBoxFor(m => m.Urun_Adi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Urun_Aciklama)
+        @Html.TextBoxFor(m => m.Urun_Aciklama, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+
+}
+
+

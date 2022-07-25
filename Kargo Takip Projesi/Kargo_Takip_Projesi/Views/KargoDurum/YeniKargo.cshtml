@@ -1,0 +1,35 @@
+﻿@model Kargo_Takip_Projesi.Models.Veri_Tabani.Kargo_Durum
+@{
+    ViewBag.Title = "YeniKargo";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kargo Gönderici Kişi</label>
+        <input type="text" class="form-control" name="Kargo_Gonderici_Kisi" />
+    </div>
+    <div>
+        <label>Kargo Alıcı Kişi</label>
+        <input type="text" class="form-control" name="Kargo_Alici_Kisi" />
+    </div>
+    <div>
+        <label>Kargolanacak Ürün</label>
+        @Html.DropDownListFor(m => m.Urun_Bilgileri.Urun_Barkod_Numarasi, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kargo İşlem Tarihi</label>
+        <input type="text" class="form-control" name="Kargo_Islem_Tarihi" />
+    </div>
+    <div>
+        <label>Kargo Durumu</label>
+        <input type="text" class="form-control" name="Kargo_Durumu" />
+    </div>
+    <div style="margin-top:15px"></div>
+    <button class="btn btn-info">Kargo Ekle</button>
+
+</form>
+
+
+
+

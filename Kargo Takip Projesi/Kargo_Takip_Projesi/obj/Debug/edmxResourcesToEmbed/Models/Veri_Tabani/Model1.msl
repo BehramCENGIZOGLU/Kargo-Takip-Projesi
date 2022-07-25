@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Kargo_TakipModelStoreContainer" CdmEntityContainer="Kargo_TakipEntities">
+    <EntitySetMapping Name="Alici_Bilgileri">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.Alici_Bilgileri">
+        <MappingFragment StoreEntitySet="Alici_Bilgileri">
+          <ScalarProperty Name="Alici_Id" ColumnName="Alici_Id" />
+          <ScalarProperty Name="Alici_Ad" ColumnName="Alici_Ad" />
+          <ScalarProperty Name="Alici_Soyad" ColumnName="Alici_Soyad" />
+          <ScalarProperty Name="Alici_Adres" ColumnName="Alici_Adres" />
+          <ScalarProperty Name="Alici_Ilce" ColumnName="Alici_Ilce" />
+          <ScalarProperty Name="Alici_Il" ColumnName="Alici_Il" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gönderici_Bilgileri">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.Gönderici_Bilgileri">
+        <MappingFragment StoreEntitySet="Gönderici_Bilgileri">
+          <ScalarProperty Name="Gonderici_Id" ColumnName="Gonderici_Id" />
+          <ScalarProperty Name="Gonderici_Ad" ColumnName="Gonderici_Ad" />
+          <ScalarProperty Name="Gonderici_Soyad" ColumnName="Gonderici_Soyad" />
+          <ScalarProperty Name="Gonderici_Adres" ColumnName="Gonderici_Adres" />
+          <ScalarProperty Name="Gonderici_Ilce" ColumnName="Gonderici_Ilce" />
+          <ScalarProperty Name="Gonderici_Il" ColumnName="Gonderici_Il" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kargo_Durum">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.Kargo_Durum">
+        <MappingFragment StoreEntitySet="Kargo_Durum">
+          <ScalarProperty Name="Kargo_Id" ColumnName="Kargo_Id" />
+          <ScalarProperty Name="Kargo_Gonderici_Kisi" ColumnName="Kargo_Gonderici_Kisi" />
+          <ScalarProperty Name="Kargo_Alici_Kisi" ColumnName="Kargo_Alici_Kisi" />
+          <ScalarProperty Name="Kargo_Urun" ColumnName="Kargo_Urun" />
+          <ScalarProperty Name="Kargo_Islem_Tarihi" ColumnName="Kargo_Islem_Tarihi" />
+          <ScalarProperty Name="Kargo_Durumu" ColumnName="Kargo_Durumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun_Bilgileri">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.Urun_Bilgileri">
+        <MappingFragment StoreEntitySet="Urun_Bilgileri">
+          <ScalarProperty Name="Urun_Barkod_Numarasi" ColumnName="Urun_Barkod_Numarasi" />
+          <ScalarProperty Name="Urun_Adi" ColumnName="Urun_Adi" />
+          <ScalarProperty Name="Urun_Aciklama" ColumnName="Urun_Aciklama" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Yonetici_Kayit">
+      <EntityTypeMapping TypeName="Kargo_TakipModel.Yonetici_Kayit">
+        <MappingFragment StoreEntitySet="Yonetici_Kayit">
+          <ScalarProperty Name="Yonetici_Id" ColumnName="Yonetici_Id" />
+          <ScalarProperty Name="Yonetici_Kullanici_Adi" ColumnName="Yonetici_Kullanici_Adi" />
+          <ScalarProperty Name="Yonetici_Sifre" ColumnName="Yonetici_Sifre" />
+          <ScalarProperty Name="Yonetici_Email" ColumnName="Yonetici_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

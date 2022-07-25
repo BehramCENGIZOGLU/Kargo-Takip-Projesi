@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Kargo_TakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alici_Bilgileri">
+    <Key>
+      <PropertyRef Name="Alici_Id" />
+    </Key>
+    <Property Name="Alici_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Alici_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alici_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alici_Adres" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alici_Ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Alici_Il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kargo_Durum" Relationship="Self.FK_Kargo_Durum_Alici_Bilgileri" FromRole="Alici_Bilgileri" ToRole="Kargo_Durum" />
+  </EntityType>
+  <EntityType Name="Gönderici_Bilgileri">
+    <Key>
+      <PropertyRef Name="Gonderici_Id" />
+    </Key>
+    <Property Name="Gonderici_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gonderici_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gonderici_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gonderici_Adres" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gonderici_Ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gonderici_Il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kargo_Durum" Relationship="Self.FK_Kargo_Durum_Gönderici_Bilgileri" FromRole="Gönderici_Bilgileri" ToRole="Kargo_Durum" />
+  </EntityType>
+  <EntityType Name="Kargo_Durum">
+    <Key>
+      <PropertyRef Name="Kargo_Id" />
+    </Key>
+    <Property Name="Kargo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kargo_Gonderici_Kisi" Type="Int32" Nullable="false" />
+    <Property Name="Kargo_Alici_Kisi" Type="Int32" Nullable="false" />
+    <Property Name="Kargo_Urun" Type="Int32" Nullable="false" />
+    <Property Name="Kargo_Islem_Tarihi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Kargo_Durumu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alici_Bilgileri" Relationship="Self.FK_Kargo_Durum_Alici_Bilgileri" FromRole="Kargo_Durum" ToRole="Alici_Bilgileri" />
+    <NavigationProperty Name="Gönderici_Bilgileri" Relationship="Self.FK_Kargo_Durum_Gönderici_Bilgileri" FromRole="Kargo_Durum" ToRole="Gönderici_Bilgileri" />
+    <NavigationProperty Name="Urun_Bilgileri" Relationship="Self.FK_Kargo_Durum_Urun_Bilgileri" FromRole="Kargo_Durum" ToRole="Urun_Bilgileri" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urun_Bilgileri">
+    <Key>
+      <PropertyRef Name="Urun_Barkod_Numarasi" />
+    </Key>
+    <Property Name="Urun_Barkod_Numarasi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Urun_Adi" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Urun_Aciklama" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Kargo_Durum" Relationship="Self.FK_Kargo_Durum_Urun_Bilgileri" FromRole="Urun_Bilgileri" ToRole="Kargo_Durum" />
+  </EntityType>
+  <EntityType Name="Yonetici_Kayit">
+    <Key>
+      <PropertyRef Name="Yonetici_Id" />
+    </Key>
+    <Property Name="Yonetici_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yonetici_Kullanici_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Yonetici_Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Yonetici_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Kargo_Durum_Alici_Bilgileri">
+    <End Role="Alici_Bilgileri" Type="Self.Alici_Bilgileri" Multiplicity="1" />
+    <End Role="Kargo_Durum" Type="Self.Kargo_Durum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alici_Bilgileri">
+        <PropertyRef Name="Alici_Id" />
+      </Principal>
+      <Dependent Role="Kargo_Durum">
+        <PropertyRef Name="Kargo_Alici_Kisi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kargo_Durum_Gönderici_Bilgileri">
+    <End Role="Gönderici_Bilgileri" Type="Self.Gönderici_Bilgileri" Multiplicity="1" />
+    <End Role="Kargo_Durum" Type="Self.Kargo_Durum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gönderici_Bilgileri">
+        <PropertyRef Name="Gonderici_Id" />
+      </Principal>
+      <Dependent Role="Kargo_Durum">
+        <PropertyRef Name="Kargo_Gonderici_Kisi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kargo_Durum_Urun_Bilgileri">
+    <End Role="Urun_Bilgileri" Type="Self.Urun_Bilgileri" Multiplicity="1" />
+    <End Role="Kargo_Durum" Type="Self.Kargo_Durum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun_Bilgileri">
+        <PropertyRef Name="Urun_Barkod_Numarasi" />
+      </Principal>
+      <Dependent Role="Kargo_Durum">
+        <PropertyRef Name="Kargo_Urun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Kargo_TakipEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alici_Bilgileri" EntityType="Self.Alici_Bilgileri" />
+    <EntitySet Name="Gönderici_Bilgileri" EntityType="Self.Gönderici_Bilgileri" />
+    <EntitySet Name="Kargo_Durum" EntityType="Self.Kargo_Durum" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Urun_Bilgileri" EntityType="Self.Urun_Bilgileri" />
+    <EntitySet Name="Yonetici_Kayit" EntityType="Self.Yonetici_Kayit" />
+    <AssociationSet Name="FK_Kargo_Durum_Alici_Bilgileri" Association="Self.FK_Kargo_Durum_Alici_Bilgileri">
+      <End Role="Alici_Bilgileri" EntitySet="Alici_Bilgileri" />
+      <End Role="Kargo_Durum" EntitySet="Kargo_Durum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kargo_Durum_Gönderici_Bilgileri" Association="Self.FK_Kargo_Durum_Gönderici_Bilgileri">
+      <End Role="Gönderici_Bilgileri" EntitySet="Gönderici_Bilgileri" />
+      <End Role="Kargo_Durum" EntitySet="Kargo_Durum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kargo_Durum_Urun_Bilgileri" Association="Self.FK_Kargo_Durum_Urun_Bilgileri">
+      <End Role="Urun_Bilgileri" EntitySet="Urun_Bilgileri" />
+      <End Role="Kargo_Durum" EntitySet="Kargo_Durum" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

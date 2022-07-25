@@ -1,0 +1,30 @@
+﻿@using Kargo_Takip_Projesi.Models.Veri_Tabani
+@model List<Urun_Bilgileri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Barkod Numarası</th>
+        <th>Ürün Adı</th>
+        <th>Ürün Açıklama</th>
+        <th>Güncelle</th>
+
+    </tr>
+    <tbody>
+        @foreach (var urn in Model)
+        {
+            <tr>
+                <th>@urn.Urun_Barkod_Numarasi</th>
+                <td>@urn.Urun_Adi</td>
+                <td>@urn.Urun_Aciklama</td>
+                <td><a href="/Urun/UrunGuncelle/@urn.Urun_Barkod_Numarasi" class="btn btn-danger">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Urun/YeniUrun/" class="btn btn-success">Ekle</a>
+
+

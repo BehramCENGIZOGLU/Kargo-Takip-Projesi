@@ -1,0 +1,34 @@
+﻿@using Kargo_Takip_Projesi.Models.Veri_Tabani
+@model List<Kargo_Durum>
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kargo İd</th>
+        <th>Kargo Gönderici Kisi</th>
+        <th>Kargo Alici Kisi</th>
+        <th>Kargo Ürün</th>
+        <th>Kargo İşlem Tarihi</th>
+        <th>Kargo Durumu</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var krgdrm in Model)
+        {
+            <tr>
+                <th>@krgdrm.Kargo_Id</th>
+                <td>@krgdrm.Gönderici_Bilgileri.Gonderici_Ad</td>
+                <td>@krgdrm.Alici_Bilgileri.Alici_Ad</td>
+                <td>@krgdrm.Urun_Bilgileri.Urun_Adi</td>
+                <td>@krgdrm.Kargo_Islem_Tarihi</td>
+                <td>@krgdrm.Kargo_Durumu</td>
+                <td><a href="/KargoDurum/KargoGuncelle/@krgdrm.Kargo_Id" class="btn btn-danger">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/KargoDurum/YeniKargo/" class="btn btn-success">Ekle</a>
+

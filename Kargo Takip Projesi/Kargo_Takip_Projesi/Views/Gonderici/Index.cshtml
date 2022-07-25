@@ -1,0 +1,34 @@
+﻿@using Kargo_Takip_Projesi.Models.Veri_Tabani
+@model List<Gönderici_Bilgileri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Gönderici İd</th>
+        <th>Gönderici Adı</th>
+        <th>Gönderici Soyadı</th>
+        <th>Gönderici Adresi</th>
+        <th>Gönderici İlçe</th>
+        <th>Gönderici İl</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var gndrc in Model)
+        {
+            <tr>
+                <th>@gndrc.Gonderici_Id</th>
+                <td>@gndrc.Gonderici_Ad</td>
+                <td>@gndrc.Gonderici_Soyad</td>
+                <td>@gndrc.Gonderici_Adres</td>
+                <td>@gndrc.Gonderici_Ilce</td>
+                <td>@gndrc.Gonderici_Il</td>
+                <td><a href="/Gonderici/GondericiGuncelle/@gndrc.Gonderici_Id" class="btn btn-danger">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Gonderici/YeniGonderici/" class="btn btn-success">Ekle</a>
+
